@@ -1,0 +1,12 @@
+{
+  "name": "sms-spam",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/static": "^6.5.0",
+    "axios": "^0.27.2",
+    "fastify": "^4.5.3",
+    "kavenegar": "^1.1.4"
+  }
+}

@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS SPAM</title>
+    <!-- import JavaScript -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</head>
+
+<body dir="rtl">
+    <div id="#app">
+        <div class="flex h-screen">
+            <div class="m-auto w-1/4 rounded bg-gray-100 p-4 border shadow">
+                <div class="text-xl font-bold">لطفا برای ورود شماره موبایل خود را وارد کنید.</div>
+                <div>
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">نام
+                        کاربری</label>
+
+                    <input type="text" id="username"
+                        class="my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="09121234567" required>
+                </div>
+
+                <div>
+                    <label for="password"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">رمزعبور</label>
+
+                    <input type="password" id="password"
+                        class="my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="09121234567" required>
+                </div>
+
+                <button type="submit" onclick="sendSMS()"
+                    class="font-bold text-lg text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">تایید</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendSMS() {
+            axios.post('/signup', {
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>
